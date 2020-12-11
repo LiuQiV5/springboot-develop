@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.uni.common.springboot.SpringbootApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.772 s - in com.uni.common.springboot.SpringbootApplicationTests

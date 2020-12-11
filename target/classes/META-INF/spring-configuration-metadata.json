@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "token",
+      "type": "com.uni.common.springboot.util.JwtUtils",
+      "sourceType": "com.uni.common.springboot.util.JwtUtils"
+    }
+  ],
+  "properties": [
+    {
+      "name": "token.expire-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.uni.common.springboot.util.JwtUtils",
+      "defaultValue": 0
+    },
+    {
+      "name": "token.redis-template",
+      "type": "org.springframework.data.redis.core.RedisTemplate",
+      "sourceType": "com.uni.common.springboot.util.JwtUtils"
+    },
+    {
+      "name": "token.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.uni.common.springboot.util.JwtUtils"
+    }
+  ],
+  "hints": []
+}
