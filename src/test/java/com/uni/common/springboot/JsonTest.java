@@ -3,8 +3,8 @@ package com.uni.common.springboot;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.uni.common.springboot.config.CustomizeNullJsonSerializer;
-import com.uni.common.springboot.config.MyBeanSerializerModifier;
+import com.uni.common.springboot.config.UniCustomNullJsonSerializer;
+import com.uni.common.springboot.config.UniCustomSerializerModifier;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,9 +20,9 @@ public class JsonTest {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
-        OBJECT_MAPPER.setSerializerFactory(OBJECT_MAPPER.getSerializerFactory().withSerializerModifier(new MyBeanSerializerModifier()));
+        OBJECT_MAPPER.setSerializerFactory(OBJECT_MAPPER.getSerializerFactory().withSerializerModifier(new UniCustomSerializerModifier()));
         SerializerProvider serializerProvider = OBJECT_MAPPER.getSerializerProvider();
-        serializerProvider.setNullValueSerializer(new CustomizeNullJsonSerializer.NullObjectJsonSerializer());
+        serializerProvider.setNullValueSerializer(new UniCustomNullJsonSerializer.NullObjectJsonSerializer());
     }
 
     @Getter

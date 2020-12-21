@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
      * jackson全局配置java8 LocalDate的序列化 全局配置时间返回格式
  */
 @Configuration
-public class JacksonCustomizerConfig {
+public class UniJacksonCustomizerConfig {
 
     /**
      * description:适配自定义序列化和反序列化策略
@@ -41,10 +41,10 @@ public class JacksonCustomizerConfig {
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
         objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-                .withSerializerModifier(new MyBeanSerializerModifier()));
+                .withSerializerModifier(new UniCustomSerializerModifier()));
 
         SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        serializerProvider.setNullValueSerializer(new CustomizeNullJsonSerializer
+        serializerProvider.setNullValueSerializer(new UniCustomNullJsonSerializer
                 .NullObjectJsonSerializer());
         return objectMapper;
     }

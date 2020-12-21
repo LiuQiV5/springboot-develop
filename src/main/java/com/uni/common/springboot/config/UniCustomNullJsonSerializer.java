@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * 自定义null值序列化处理器
  */
-public class CustomizeNullJsonSerializer {
+public class UniCustomNullJsonSerializer {
 
     /**
      * 处理数组集合类型的null值

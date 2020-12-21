@@ -16,7 +16,7 @@ import java.util.List;
  * 4.Boolean类型序列化为false
  * 5.Object序列化为{}
  */
-public class MyBeanSerializerModifier extends BeanSerializerModifier {
+public class UniCustomSerializerModifier extends BeanSerializerModifier {
 
     @Override
     public List<BeanPropertyWriter> changeProperties(SerializationConfig config,
@@ -28,13 +28,13 @@ public class MyBeanSerializerModifier extends BeanSerializerModifier {
             // 判断字段的类型，如果是数组或集合则注册nullSerializer
             if (isArrayType(writer)) {
                 // 给writer注册一个自己的nullSerializer
-                writer.assignNullSerializer(new CustomizeNullJsonSerializer.NullArrayJsonSerializer());
+                writer.assignNullSerializer(new UniCustomNullJsonSerializer.NullArrayJsonSerializer());
             } else if (isStringType(writer)) {
-                writer.assignNullSerializer(new CustomizeNullJsonSerializer.NullStringJsonSerializer());
+                writer.assignNullSerializer(new UniCustomNullJsonSerializer.NullStringJsonSerializer());
             } else if (isNumberType(writer)) {
-                writer.assignNullSerializer(new CustomizeNullJsonSerializer.NullNumberJsonSerializer());
+                writer.assignNullSerializer(new UniCustomNullJsonSerializer.NullNumberJsonSerializer());
             } else if (isBooleanType(writer)) {
-                writer.assignNullSerializer(new CustomizeNullJsonSerializer.NullBooleanJsonSerializer());
+                writer.assignNullSerializer(new UniCustomNullJsonSerializer.NullBooleanJsonSerializer());
             }
         }
         return beanProperties;
