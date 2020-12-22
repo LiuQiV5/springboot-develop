@@ -1,0 +1,19 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+#Directory:
+dist
+build
+out
+target
+.git
+.idea
+LOG_PATH_IS_UNDEFINED
+
+#Intellij
+*.iml
+*.csv
+*.log
+*.gz
