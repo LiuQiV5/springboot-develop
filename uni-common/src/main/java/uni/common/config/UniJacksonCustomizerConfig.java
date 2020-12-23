@@ -3,6 +3,7 @@ package uni.common.config;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -15,9 +16,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-/**
-     * jackson全局配置java8 LocalDate的序列化 全局配置时间返回格式
- */
 @Configuration
 public class UniJacksonCustomizerConfig {
 
@@ -36,7 +34,7 @@ public class UniJacksonCustomizerConfig {
 
     @Bean
     @Primary
-    @ConditionalOnMissingBean(ObjectMapper.class)
+    @ConditionalOnClass(Jackson2ObjectMapperBuilder.class)
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
